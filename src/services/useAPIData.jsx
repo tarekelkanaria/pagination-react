@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 const useAPIData = () => {
@@ -9,13 +9,13 @@ const useAPIData = () => {
     errorText: "",
   });
 
-  const getData = async (search) => {
+  const getData = useCallback(async (search) => {
     const colors = {};
-    const searchParam = `search?q=${search}`;
+    const searchParam = `/search?q=${search}`;
     try {
       setProductsData((prevData) => ({ ...prevData, isLoading: true }));
       const response = await axios
-        .get(`https://dummyjson.com/products/${search ? searchParam : ""}`)
+        .get(`https://dummyjson.com/products${search ? searchParam : ""}`)
         .then((res) => res.data.products);
       const loadedProducts = response.map((item) => {
         if (!colors[item.category]) {
@@ -40,11 +40,11 @@ const useAPIData = () => {
       }));
     }
     setProductsData((prevData) => ({ ...prevData, isLoading: false }));
-  };
+  }, []);
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [getData]);
 
   return { ...productsData, getData };
 };
