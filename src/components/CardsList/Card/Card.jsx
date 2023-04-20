@@ -8,7 +8,7 @@ const Card = (props) => {
         width: "30rem",
         height: "48rem",
         padding: "1rem",
-        backgroundColor: `${props.color}`,
+        backgroundColor: `${props.bgColor}`,
       }}
       className="rounded ms-2 mb-5 border border-white border-5 rounded-2"
     >
@@ -21,7 +21,7 @@ const Card = (props) => {
       <BSCard.Body className="h-25">
         <BSCard.Title>{props.title}</BSCard.Title>
         <BSCard.Text className="text-truncate">{props.description}</BSCard.Text>
-        <BSCard.Link>{props.category}</BSCard.Link>
+        <BSCard.Link role="button">{props.category}</BSCard.Link>
       </BSCard.Body>
       <BSCard.Footer className="text-muted d-flex justify-content-between">
         <div>

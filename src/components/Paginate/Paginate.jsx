@@ -1,29 +1,28 @@
-import { usePaginateContext } from "../../store/PaginateProvider";
-import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
+import { usePageContext } from "../../store/PageProvider";
 import Pagination from "react-bootstrap/Pagination";
+import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 
-const Paginate = () => {
-  const paginateCTX = usePaginateContext();
-  const pageCount = Math.ceil(
-    paginateCTX.products.length / paginateCTX.postsPerPage
-  );
+const Paginate = ({ totalProducts, perPage }) => {
+  const paginateCTX = usePageContext();
 
-  const decrease = (currentPage) => {
-    if (currentPage >= 1) {
-      paginateCTX.changePage(currentPage);
+  const totalPages = Math.ceil(totalProducts / perPage);
+
+  const nextPage = (newPage) => {
+    if (newPage <= totalPages) {
+      paginateCTX.changePage(newPage);
     }
   };
 
-  const increase = (currentPage) => {
-    if (currentPage <= pageCount) {
-      paginateCTX.changePage(currentPage);
+  const previousPage = (newPage) => {
+    if (newPage >= 1) {
+      paginateCTX.changePage(newPage);
     }
   };
 
   return (
     <Pagination className="d-flex justify-content-center p-5" size="lg">
       <Pagination.Prev
-        onClick={() => decrease(paginateCTX.currentPage - 1)}
+        onClick={() => previousPage(paginateCTX.currentPage - 1)}
         disabled={paginateCTX.currentPage === 1}
         className="bg-light"
       >
@@ -33,8 +32,8 @@ const Paginate = () => {
         {paginateCTX.currentPage}
       </Pagination.Item>
       <Pagination.Next
-        onClick={() => increase(paginateCTX.currentPage + 1)}
-        disabled={paginateCTX.currentPage === pageCount}
+        onClick={() => nextPage(paginateCTX.currentPage + 1)}
+        disabled={paginateCTX.currentPage === totalPages}
         className="bg-light"
       >
         <MdArrowForwardIos />

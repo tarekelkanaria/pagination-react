@@ -1,12 +1,21 @@
-import useAPIData from "../../services/useAPIData";
+import { useEffect, useState } from "react";
 import { Form as BSForm } from "react-bootstrap";
-import { useState } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ search }) => {
   const [searchWord, setSearchWord] = useState("");
-  const { getData } = useAPIData();
 
-  // here we will pass search word to getData from useAPIData hook
+  const serachHandler = (e) => {
+    setSearchWord(e.target.value);
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      search(searchWord);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [searchWord]);
+
   return (
     <section>
       <BSForm.Control
@@ -14,7 +23,8 @@ const SearchBar = () => {
         placeholder="Start Search"
         size="lg"
         className="p-3 fs-3"
-        defaultValue={searchWord}
+        value={searchWord}
+        onChange={serachHandler}
       />
     </section>
   );
