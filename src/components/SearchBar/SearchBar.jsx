@@ -11,7 +11,7 @@ const SearchBar = ({ search }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       search(searchWord);
-    }, 1000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [searchWord]);

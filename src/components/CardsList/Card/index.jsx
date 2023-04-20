@@ -1,3 +1,4 @@
+import CardPopover from "./CardPopover/CardPopover";
 import { Card as BSCard } from "react-bootstrap";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
@@ -21,7 +22,9 @@ const Card = (props) => {
       <BSCard.Body className="h-25">
         <BSCard.Title>{props.title}</BSCard.Title>
         <BSCard.Text className="text-truncate">{props.description}</BSCard.Text>
-        <BSCard.Link role="button">{props.category}</BSCard.Link>
+        <CardPopover id={props.id} images={props.images} title={props.category}>
+          <BSCard.Link role="button">{props.category}</BSCard.Link>
+        </CardPopover>
       </BSCard.Body>
       <BSCard.Footer className="text-muted d-flex justify-content-between">
         <div>

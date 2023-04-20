@@ -8,12 +8,12 @@ const useAPI = (updateProducts) => {
   const [isInitial, setIsInitial] = useState(true);
 
   const requestData = async (search) => {
+    setIsLoading(true);
+    setIsInitial(false);
     const bgColor = {};
     const searchParam = `/search?q=${search}`;
 
     try {
-      setIsLoading(true);
-      setIsInitial(false);
       const response = await axios
         .get(
           `https://dummyjson.com/products${search ? searchParam : "?limit=0"}`

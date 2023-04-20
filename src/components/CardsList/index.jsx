@@ -1,4 +1,4 @@
-import Card from "./Card/Card";
+import Card from "./Card";
 import Spinner from "react-bootstrap/Spinner";
 
 const CardsList = ({ products, isLoading, hasError, errorText, isInitial }) => {
