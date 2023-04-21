@@ -2,6 +2,10 @@
 
 Webpage retrieves data From DummyJSON API using React framework
 
+## Demo Preview
+
+[Link to the page](https://react-paginate-elkanaria.netlify.app/)
+
 ## Author
 
 Tarek Elkanaria
