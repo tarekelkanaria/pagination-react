@@ -6,12 +6,9 @@ const Card = (props) => {
   return (
     <BSCard
       style={{
-        width: "30rem",
-        height: "48rem",
-        padding: "1rem",
         backgroundColor: `${props.bgColor}`,
       }}
-      className="rounded ms-2 mb-5 border border-white border-5 rounded-2"
+      className="rounded ms-2 mb-5 border border-white border-5 rounded-2 product"
     >
       <BSCard.Img
         variant="top"

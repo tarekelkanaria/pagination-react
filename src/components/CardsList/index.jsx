@@ -29,7 +29,9 @@ const CardsList = ({ products, isLoading, hasError, errorText, isInitial }) => {
           </p>
         </div>
       ) : (
-        <section className="p-5 d-flex flex-wrap ">{cardsElements}</section>
+        <section className="p-sm-1 p-md-5 mt-2 d-flex justify-content-center flex-wrap ">
+          {cardsElements}
+        </section>
       )}
     </>
   );

@@ -5,7 +5,7 @@ import Popover from "react-bootstrap/Popover";
 const CardPopover = ({ images, title, children }) => {
   const imagesElements = images.map((image) => (
     <Carousel.Item key={image}>
-      <img className="d-block w-100 m-3" src={image} alt={title} />
+      <img className="d-block w-100 h-100 m-3" src={image} alt={title} />
     </Carousel.Item>
   ));
 
@@ -14,7 +14,7 @@ const CardPopover = ({ images, title, children }) => {
       trigger="click"
       placement="right"
       overlay={
-        <Popover className="bg-primary">
+        <Popover className="bg-info">
           <Popover.Header as="h3" className="fs-2">
             {title}
           </Popover.Header>
