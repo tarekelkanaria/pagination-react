@@ -32,9 +32,8 @@ function App() {
   );
 
   return (
-    <main className="bg-primary-subtle p-5">
+    <main className="bg-primary-subtle p-sm-1 p-md-5">
       <SearchBar search={updateSearch} />
-
       <CardsList
         products={currentProducts}
         isLoading={isLoading}
