@@ -1,4 +1,4 @@
-import CardPopover from "./CardPopover/CardPopover";
+import CardPopover from "./CardPopover";
 import { Card as BSCard } from "react-bootstrap";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
