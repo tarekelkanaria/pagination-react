@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import axios from "axios";
 
 const useAPI = (updateProducts) => {
@@ -7,7 +7,7 @@ const useAPI = (updateProducts) => {
   const [errorText, setErrorText] = useState("");
   const [isInitial, setIsInitial] = useState(true);
 
-  const requestData = async (search) => {
+  const requestData = useCallback(async (search) => {
     setIsLoading(true);
     setIsInitial(false);
     const bgColor = {};
@@ -39,7 +39,7 @@ const useAPI = (updateProducts) => {
     }
 
     setIsLoading(false);
-  };
+  }, []);
 
   return { isLoading, hasError, errorText, requestData, isInitial };
 };

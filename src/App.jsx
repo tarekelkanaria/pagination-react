@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { usePageContext } from "./store/PageProvider";
 import useAPI from "./hooks/use-api";
 import SearchBar from "./components/SearchBar";
@@ -19,10 +19,12 @@ function App() {
   const productsPerPage = 10;
 
   // update the data when user start searching
-  const updateSearch = (word) => {
-    requestData(word);
-  };
-
+  const updateSearch = useCallback(
+    (word) => {
+      requestData(word);
+    },
+    [requestData]
+  );
   // get the current products for the current page
   const indexOfLastProduct = AppCTX.currentPage * productsPerPage;
   const indexOfFirstProducs = indexOfLastProduct - productsPerPage;
