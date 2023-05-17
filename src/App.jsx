@@ -24,8 +24,6 @@ function App() {
   );
   const productsPerPage = 10;
 
-  console.log(products);
-
   // update the data when user start searching
   const updateSearch = useCallback((word) => {
     setSearchTerm(word);
