@@ -12,19 +12,24 @@ function App() {
   // context api to get current page
   const AppCTX = usePageContext();
   const [products, setProducts] = useState([]);
-  // Passing function to api hook to extract the data
-  const { isLoading, hasError, errorText, requestData, isInitial } = useAPI(
-    (productsData) => setProducts(productsData)
+  const [searchTerm, setSearchTerm] = useState("");
+  // Passing function and search term to api hook to extract the data
+  const changeProducts = useCallback((productsData) => {
+    setProducts(productsData);
+  }, []);
+
+  const { isLoading, hasError, errorText, isInitial } = useAPI(
+    changeProducts,
+    searchTerm
   );
   const productsPerPage = 10;
 
+  console.log(products);
+
   // update the data when user start searching
-  const updateSearch = useCallback(
-    (word) => {
-      requestData(word);
-    },
-    [requestData]
-  );
+  const updateSearch = useCallback((word) => {
+    setSearchTerm(word);
+  }, []);
   // get the current products for the current page
   const indexOfLastProduct = AppCTX.currentPage * productsPerPage;
   const indexOfFirstProducs = indexOfLastProduct - productsPerPage;
