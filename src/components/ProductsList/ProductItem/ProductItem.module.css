@@ -1,0 +1,27 @@
+.wrapper {
+  @apply flex flex-col justify-between h-96 w-72 p-3 bg-slate-100 rounded-md;
+}
+.product-img {
+  @apply h-1/2 w-full;
+}
+.title {
+  @apply font-heading text-xs bg-body text-gray-700 rounded-sm mb-1 py-0.5 pl-2;
+}
+.category-feild {
+  @apply relative text-center bg-body py-0.5 rounded-sm mb-1;
+}
+.category-feild button {
+  @apply py-1 px-2 font-category font-bold bg-sky-200 text-gray-700 hover:bg-slate-200 hover:text-amber-900 rounded-md;
+}
+.text {
+  @apply py-0.5 bg-body rounded-sm mb-1;
+}
+.text p {
+  @apply pl-2 text-sm font-sans text-amber-900;
+}
+.info {
+  @apply flex justify-between items-center bg-body rounded-sm px-2;
+}
+.info p {
+  @apply text-gray-700;
+}

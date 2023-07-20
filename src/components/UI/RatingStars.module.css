@@ -1,0 +1,9 @@
+.rating {
+  @apply flex bg-slate-100;
+}
+.filled-star {
+  @apply text-yellow-500;
+}
+.outline-star {
+  @apply text-gray-900;
+}

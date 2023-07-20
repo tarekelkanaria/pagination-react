@@ -1,0 +1,6 @@
+.input-feild {
+  @apply container bg-amber-300 py-2 px-3 text-center shadow-header w-full rounded-md;
+}
+.input-feild input {
+  @apply focus:shadow-search rounded-full w-4/5 max-w-[80%] font-sans text-lg indent-1;
+}

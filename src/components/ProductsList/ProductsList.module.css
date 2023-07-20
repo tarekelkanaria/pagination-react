@@ -1,0 +1,19 @@
+.error {
+  @apply text-center text-3xl text-red-600 font-bold uppercase;
+}
+.content-wrapper {
+  @apply container px-1;
+}
+.products-wrapper {
+  @apply mb-3 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-2 justify-center items-center justify-items-center;
+}
+.actions {
+  @apply text-center mb-5;
+}
+.prev-btn {
+  @apply mr-2;
+}
+.prev-btn,
+.next-btn {
+  @apply px-6 py-3 font-bold bg-sky-200 text-gray-700 hover:bg-slate-200 hover:text-amber-900 disabled:opacity-60 disabled:bg-slate-200 rounded-md;
+}

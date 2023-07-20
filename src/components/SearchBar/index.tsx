@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { Form as BSForm } from "react-bootstrap";
+import classes from "./SearchBar.module.css";
 
-const SearchBar = ({ search }) => {
+const SearchBar: React.FC<{ search: (text: string) => void }> = ({
+  search,
+}) => {
   const [searchWord, setSearchWord] = useState("");
 
-  const serachHandler = (e) => {
+  const serachHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchWord(e.target.value);
   };
 
@@ -14,15 +16,13 @@ const SearchBar = ({ search }) => {
     }, 2000);
 
     return () => clearTimeout(timer);
-  }, [searchWord]);
+  }, [searchWord, search]);
 
   return (
-    <section>
-      <BSForm.Control
+    <section className={classes["input-feild"]}>
+      <input
         type="search"
         placeholder="Start Search"
-        size="lg"
-        className="p-3 fs-3"
         value={searchWord}
         onChange={serachHandler}
       />
