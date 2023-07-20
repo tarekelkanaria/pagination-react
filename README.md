@@ -19,11 +19,11 @@ Create a page using DummyJSON API with React.js framework. with Pagination funct
 - HTML
 - CSS
 - JavaScript
+- TypeScript
 - React
-  - context API
   - custom hooks
-- Bootstrap
-- React Bootstrap
+- Tailwind CSS
+- React Query
 - axios
 - React Icons
-- Normalize.css
+- React Spinners
