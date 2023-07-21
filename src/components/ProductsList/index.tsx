@@ -17,11 +17,13 @@ const loaderStyle: CSSProperties = {
 };
 
 const ProductsList = () => {
-  const [pageNumber, setPageNumber] = useState<number>(1);
+  const [skipNumber, setSkipNumber] = useState<number>(1);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const pageNumber =
+    skipNumber > 1 ? Math.floor(skipNumber / 10 + 1) : skipNumber;
 
   const { isLoading, isError, error, data, isSuccess } = useProductsData(
-    pageNumber,
+    skipNumber,
     searchTerm
   );
 
@@ -81,15 +83,16 @@ const ProductsList = () => {
         {searchTerm.length === 0 && (
           <section className={classes.actions}>
             <button
-              onClick={() => setPageNumber((prevPage) => prevPage - 10)}
-              disabled={pageNumber === 1}
+              onClick={() => setSkipNumber((prevPage) => prevPage - 10)}
+              disabled={skipNumber === 1}
               className={classes["prev-btn"]}
             >
               <MdArrowBackIosNew />
             </button>
+            <span className="mr-2">{pageNumber}</span>
             <button
-              onClick={() => setPageNumber((prevPage) => prevPage + 10)}
-              disabled={pageNumber === totalProducts - 10 + 1}
+              onClick={() => setSkipNumber((prevPage) => prevPage + 10)}
+              disabled={skipNumber === totalProducts - 10 + 1}
               className={classes["next-btn"]}
             >
               <MdArrowForwardIos />
