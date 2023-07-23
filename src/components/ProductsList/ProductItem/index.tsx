@@ -16,20 +16,6 @@ const ProductItem: React.FC<ProductDetails> = ({
   productBG,
 }) => {
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
-  const descriptionContentLastIndex =
-    description.length <= 61
-      ? description.length
-      : description[61] === " "
-      ? 61
-      : description.indexOf(" ", 61);
-  const descriptionContent =
-    descriptionContentLastIndex !== -1
-      ? description.substring(0, descriptionContentLastIndex)
-      : description;
-  const descriptionFooter =
-    descriptionContent.length < description.length
-      ? description.substring(descriptionContentLastIndex)
-      : "";
 
   const togglePopup = () => {
     setIsPopupOpen((prevState) => !prevState);
@@ -55,8 +41,7 @@ const ProductItem: React.FC<ProductDetails> = ({
         )}
       </div>
       <div className={classes.text}>
-        <p className="break-words">{descriptionContent}</p>
-        <p className="truncate">{descriptionFooter}</p>
+        <p className="break-words line-clamp-4">{description}</p>
       </div>
       <div className={classes.info}>
         <RatingStars ratingNumber={rating} />
