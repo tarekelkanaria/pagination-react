@@ -50,7 +50,7 @@ const ProductsList = () => {
         "#" + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, "0")
       );
     }
-    return bgColor.get(key) as string;
+    return bgColor.get(key)!;
   };
 
   return (
@@ -75,7 +75,7 @@ const ProductsList = () => {
               <ProductItem
                 key={product.id}
                 {...product}
-                productBG={addBGColor(product.category)}
+                addUniqueBG={addBGColor}
               />
             ))}
           </section>

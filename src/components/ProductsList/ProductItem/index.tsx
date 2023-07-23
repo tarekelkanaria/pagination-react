@@ -13,16 +13,19 @@ const ProductItem: React.FC<ProductDetails> = ({
   category,
   thumbnail,
   images,
-  productBG,
+  addUniqueBG,
 }) => {
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
 
   const togglePopup = () => {
     setIsPopupOpen((prevState) => !prevState);
   };
-
+  const itemBackground = addUniqueBG(category);
   return (
-    <section className={classes.wrapper} style={{ backgroundColor: productBG }}>
+    <section
+      className={classes.wrapper}
+      style={{ backgroundColor: itemBackground }}
+    >
       <img
         src={thumbnail}
         alt={title}

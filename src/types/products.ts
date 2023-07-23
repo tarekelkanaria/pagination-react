@@ -10,5 +10,5 @@ export interface ProductItemType {
 }
 
 export interface ProductDetails extends ProductItemType {
-  productBG: string;
+  addUniqueBG: (key: string) => string;
 }
